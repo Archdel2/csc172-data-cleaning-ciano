@@ -1,7 +1,7 @@
 # Data Cleaning with AI Support
 
 ## Student Information
-- Name: Ciano
+- Name: Emmanuel Fitz C. Ciano
 - Course Year: BSCS 4
 - Date: 2024-12-19
 
