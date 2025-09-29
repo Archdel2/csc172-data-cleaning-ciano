@@ -38,32 +38,38 @@
 - **Prompt 1**: "Generate Pandas code to handle missing values in Titanic dataset for Age, Cabin, and Embarked columns appropriately"
 - **AI Response**: 
   ```python
-  # Age: Fill with median (less sensitive to outliers)
+  # Handle Age - fill with median
   age_median = df['Age'].median()
+  age_missing_before = df['Age'].isnull().sum()
   df['Age'] = df['Age'].fillna(age_median)
-  
-  # Cabin: Too many missing, consider dropping or creating 'Has_Cabin' feature
-  df['Has_Cabin'] = df['Cabin'].notna().astype(int)
-  df = df.drop('Cabin', axis=1)
-  
-  # Embarked: Fill with mode (most frequent)
+  age_filled_count = age_missing_before
+  print(f"Filled {age_filled_count} missing Age values with median: {age_median}")
+
+  # Handle Embarked - fill with mode
   embarked_mode = df['Embarked'].mode()[0]
+  embarked_missing_before = df['Embarked'].isnull().sum()
   df['Embarked'] = df['Embarked'].fillna(embarked_mode)
+  embarked_filled_count = embarked_missing_before
+  print(f"Filled {embarked_filled_count} missing Embarked values with mode: {embarked_mode}")
+
+  # Handle Cabin - keep column, fill missing with 'None'
+  df['Cabin'] = df['Cabin'].fillna('None')
+  print("Filled missing 'Cabin' with 'None'")
+
+  print("\nAfter handling missing values:")
+  print(f"Dataset shape: {df.shape}")
+  print("Remaining missing values:")
+  print(df.isnull().sum())
   ```
 
 - **Prompt 2**: "How can I detect and treat outliers in the Fare column using IQR method without losing data?"
 - **AI Response**: 
   ```python
-  # IQR method for Fare outliers
   Q1 = df['Fare'].quantile(0.25)
   Q3 = df['Fare'].quantile(0.75)
   IQR = Q3 - Q1
   lower_bound = Q1 - 1.5 * IQR
   upper_bound = Q3 + 1.5 * IQR
-  
-  # Cap outliers instead of removing to preserve data
-  df['Fare'] = np.where(df['Fare'] > upper_bound, upper_bound, df['Fare'])
-  df['Fare'] = np.where(df['Fare'] < lower_bound, lower_bound, df['Fare'])
   ```
 
 ## Results
