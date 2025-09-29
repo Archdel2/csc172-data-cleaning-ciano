@@ -104,3 +104,15 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Embarked,Has_Ca
 - **Fare**: Mean 24.05, Range 0.00-65.63 (outliers capped)
 - **Survival Rate**: 38.38%
 - **Cabin Availability**: 22.90% had cabin information
+
+## How to run
+- Open the notebook `notebooks/data_cleaning.ipynb` in Jupyter (VS Code, JupyterLab, or Classic).
+- Run all cells from top to bottom.
+- Tables such as `df.head()` and summary statistics use `display(...)` so they render as rich tables under the printed section headers.
+- The missing-values summary is also shown as a formatted table.
+
+## Generated outputs
+- Cleaned dataset saved to `data/cleaned_dataset.csv`.
+- Summary statistics are rendered in the notebook under:
+  - "=== Summary Statistics ===" (initial raw data)
+  - "=== Summary Statistics of Cleaned Data ===" (final cleaned data)
