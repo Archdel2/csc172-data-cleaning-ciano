@@ -116,3 +116,6 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Embarked,Has_Ca
 - Summary statistics are rendered in the notebook under:
   - "=== Summary Statistics ===" (initial raw data)
   - "=== Summary Statistics of Cleaned Data ===" (final cleaned data)
+
+## Video Link
+https://drive.google.com/file/d/15E0VQfytXfzzkMg8IfGSg8FRsg1KOULa/view?usp=sharing
